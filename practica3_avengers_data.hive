@@ -1,0 +1,419 @@
+//EN EL WORKER
+
+carmenbelito@cluster-ctic01-w-1:~$ java -jar avro-tools-1.8.2.jar
+Version 1.8.2
+ of Apache Avro
+Copyright 2010-2015 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+----------------
+Available tools:
+          cat  extracts samples from files
+      compile  Generates Java code for the given schema.
+       concat  Concatenates avro files without re-compressing.
+   fragtojson  Renders a binary-encoded Avro datum as JSON.
+     fromjson  Reads JSON records and writes an Avro data file.
+     fromtext  Imports a text file into an avro data file.
+      getmeta  Prints out the metadata of an Avro data file.
+    getschema  Prints out schema of an Avro data file.
+          idl  Generates a JSON schema from an Avro IDL file
+ idl2schemata  Extract JSON schemata of the types from an Avro IDL file
+       induce  Induce schema/protocol from Java class/interface via reflection.
+   jsontofrag  Renders a JSON-encoded Avro datum as binary.
+       random  Creates a file with randomly generated instances of a schema.
+      recodec  Alters the codec of a data file.
+       repair  Recovers data from a corrupt Avro Data file
+  rpcprotocol  Output the protocol of a RPC service
+   rpcreceive  Opens an RPC Server and listens for one message.
+      rpcsend  Sends a single RPC message.
+       tether  Run a tethered mapreduce job.
+       tojson  Dumps an Avro data file as JSON, record per line or pretty.
+       totext  Converts an Avro data file to a text file.
+     totrevni  Converts an Avro data file to a Trevni file.
+  trevni_meta  Dumps a Trevni file's metadata as JSON.
+trevni_random  Create a Trevni file filled with random instances of a schema.
+trevni_tojson  Dumps a Trevni file as JSON.
+carmenbelito@cluster-ctic01-w-1:~$ java -jar avro-tools-1.8.2.jar fromjson --schema-file likes.avs                                                                                                             c likes.json > likes.avro
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFa                                                                                                             ctory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Exception in thread "main" org.apache.avro.SchemaParseException: org.codehaus.jackson.JsonParseExc                                                                                                             eption: Unexpected character ('F' (code 70)): expected a valid value (number, String, array, objec                                                                                                             t, 'true', 'false' or 'null')
+ at [Source: org.apache.hadoop.fs.ChecksumFileSystem$FSDataBoundedInputStream@258e2e41; line: 16,                                                                                                              column: 14]
+        at org.apache.avro.Schema$Parser.parse(Schema.java:1034)
+        at org.apache.avro.Schema$Parser.parse(Schema.java:1004)
+        at org.apache.avro.tool.Util.parseSchemaFromFS(Util.java:165)
+        at org.apache.avro.tool.DataFileWriteTool.run(DataFileWriteTool.java:82)
+        at org.apache.avro.tool.Main.run(Main.java:87)
+        at org.apache.avro.tool.Main.main(Main.java:76)
+Caused by: org.codehaus.jackson.JsonParseException: Unexpected character ('F' (code 70)): expected                                                                                                              a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: org.apache.hadoop.fs.ChecksumFileSystem$FSDataBoundedInputStream@258e2e41; line: 16,                                                                                                              column: 14]
+        at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+        at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java                                                                                                             :521)
+        at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimal                                                                                                             Base.java:442)
+        at org.codehaus.jackson.impl.Utf8StreamParser._handleUnexpectedValue(Utf8StreamParser.java                                                                                                             :2090)
+        at org.codehaus.jackson.impl.Utf8StreamParser.nextToken(Utf8StreamParser.java:555)
+        at org.codehaus.jackson.map.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeser                                                                                                             ializer.java:192)
+        at org.codehaus.jackson.map.deser.std.BaseNodeDeserializer.deserializeArray(JsonNodeDeseri                                                                                                             alizer.java:224)
+        at org.codehaus.jackson.map.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeser                                                                                                             ializer.java:200)
+        at org.codehaus.jackson.map.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserialize                                                                                                             r.java:58)
+        at org.codehaus.jackson.map.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserialize                                                                                                             r.java:15)
+        at org.codehaus.jackson.map.ObjectMapper._readValue(ObjectMapper.java:2704)
+        at org.codehaus.jackson.map.ObjectMapper.readTree(ObjectMapper.java:1344)
+        at org.apache.avro.Schema$Parser.parse(Schema.java:1032)
+        ... 5 more
+carmenbelito@cluster-ctic01-w-1:~$ java -jar avro-tools-1.8.2.jar fromjson --schema-file likes.avs                                                                                                             c likes.json > likes.avro
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFa                                                                                                             ctory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Exception in thread "main" org.apache.avro.SchemaParseException: org.codehaus.jackson.JsonParseExc                                                                                                             eption: Unexpected character ('F' (code 70)): expected a valid value (number, String, array, objec                                                                                                             t, 'true', 'false' or 'null')
+ at [Source: org.apache.hadoop.fs.ChecksumFileSystem$FSDataBoundedInputStream@258e2e41; line: 16,                                                                                                              column: 14]
+        at org.apache.avro.Schema$Parser.parse(Schema.java:1034)
+        at org.apache.avro.Schema$Parser.parse(Schema.java:1004)
+        at org.apache.avro.tool.Util.parseSchemaFromFS(Util.java:165)
+        at org.apache.avro.tool.DataFileWriteTool.run(DataFileWriteTool.java:82)
+        at org.apache.avro.tool.Main.run(Main.java:87)
+        at org.apache.avro.tool.Main.main(Main.java:76)
+Caused by: org.codehaus.jackson.JsonParseException: Unexpected character ('F' (code 70)): expected                                                                                                              a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: org.apache.hadoop.fs.ChecksumFileSystem$FSDataBoundedInputStream@258e2e41; line: 16,                                                                                                              column: 14]
+        at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+        at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java                                                                                                             :521)
+        at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimal                                                                                                             Base.java:442)
+        at org.codehaus.jackson.impl.Utf8StreamParser._handleUnexpectedValue(Utf8StreamParser.java                                                                                                             :2090)
+        at org.codehaus.jackson.impl.Utf8StreamParser.nextToken(Utf8StreamParser.java:555)
+        at org.codehaus.jackson.map.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeser                                                                                                             ializer.java:192)
+        at org.codehaus.jackson.map.deser.std.BaseNodeDeserializer.deserializeArray(JsonNodeDeseri                                                                                                             alizer.java:224)
+        at org.codehaus.jackson.map.deser.std.BaseNodeDeserializer.deserializeObject(JsonNodeDeser                                                                                                             ializer.java:200)
+        at org.codehaus.jackson.map.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserialize                                                                                                             r.java:58)
+        at org.codehaus.jackson.map.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserialize                                                                                                             r.java:15)
+        at org.codehaus.jackson.map.ObjectMapper._readValue(ObjectMapper.java:2704)
+        at org.codehaus.jackson.map.ObjectMapper.readTree(ObjectMapper.java:1344)
+        at org.apache.avro.Schema$Parser.parse(Schema.java:1032)
+        ... 5 more
+carmenbelito@cluster-ctic01-w-1:~$ java -jar avro-tools-1.8.2.jar fromjson --schema-file likes.avs                                                                                                             c likes.json > likes.avro
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFa                                                                                                             ctory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Exception in thread "main" org.codehaus.jackson.JsonParseException: Unexpected character (',' (cod                                                                                                             e 44)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: java.io.DataInputStream@77888435; line: 5, column: 9]
+        at org.codehaus.jackson.JsonParser._constructError(JsonParser.java:1433)
+        at org.codehaus.jackson.impl.JsonParserMinimalBase._reportError(JsonParserMinimalBase.java                                                                                                             :521)
+        at org.codehaus.jackson.impl.JsonParserMinimalBase._reportUnexpectedChar(JsonParserMinimal                                                                                                             Base.java:442)
+        at org.codehaus.jackson.impl.Utf8StreamParser._handleUnexpectedValue(Utf8StreamParser.java                                                                                                             :2090)
+        at org.codehaus.jackson.impl.Utf8StreamParser._nextTokenNotInObject(Utf8StreamParser.java:                                                                                                             606)
+        at org.codehaus.jackson.impl.Utf8StreamParser.nextToken(Utf8StreamParser.java:492)
+        at org.apache.avro.io.JsonDecoder.doAction(JsonDecoder.java:494)
+        at org.apache.avro.io.parsing.Parser.processTrailingImplicitActions(Parser.java:135)
+        at org.apache.avro.io.JsonDecoder.advance(JsonDecoder.java:136)
+        at org.apache.avro.io.JsonDecoder.readString(JsonDecoder.java:219)
+        at org.apache.avro.io.JsonDecoder.readString(JsonDecoder.java:214)
+        at org.apache.avro.io.ResolvingDecoder.readString(ResolvingDecoder.java:201)
+        at org.apache.avro.generic.GenericDatumReader.readString(GenericDatumReader.java:422)
+        at org.apache.avro.generic.GenericDatumReader.readString(GenericDatumReader.java:414)
+        at org.apache.avro.generic.GenericDatumReader.readWithoutConversion(GenericDatumReader.jav                                                                                                             a:181)
+        at org.apache.avro.generic.GenericDatumReader.read(GenericDatumReader.java:153)
+        at org.apache.avro.generic.GenericDatumReader.readField(GenericDatumReader.java:232)
+        at org.apache.avro.generic.GenericDatumReader.readRecord(GenericDatumReader.java:222)
+        at org.apache.avro.generic.GenericDatumReader.readWithoutConversion(GenericDatumReader.jav                                                                                                             a:175)
+        at org.apache.avro.generic.GenericDatumReader.read(GenericDatumReader.java:153)
+        at org.apache.avro.generic.GenericDatumReader.read(GenericDatumReader.java:145)
+        at org.apache.avro.tool.DataFileWriteTool.run(DataFileWriteTool.java:99)
+        at org.apache.avro.tool.Main.run(Main.java:87)
+        at org.apache.avro.tool.Main.main(Main.java:76)
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -ls /datalake
+18/08/19 17:23:29 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Found 5 items
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-19 15:44 /datalake/landing
+-rw-r--r--   2 carmenbelito hadoop       1846 2018-08-12 17:14 /datalake/nasqad.csv
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-12 17:09 /datalake/noencrypted
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-12 17:07 /datalake/transactional
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-12 17:08 /datalake/visual
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -mkdir /datalake/likes
+18/08/19 17:24:36 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -ls /datalake
+18/08/19 17:24:50 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Found 6 items
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-19 15:44 /datalake/landing
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-19 17:24 /datalake/likes
+-rw-r--r--   2 carmenbelito hadoop       1846 2018-08-12 17:14 /datalake/nasqad.csv
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-12 17:09 /datalake/noencrypted
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-12 17:07 /datalake/transactional
+drwxr-xr-x   - carmenbelito hadoop          0 2018-08-12 17:08 /datalake/visual
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -put  likes.avro /datalake/likes
+18/08/19 17:25:47 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -put  likes.avsc /datalake/likes
+18/08/19 17:25:59 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -ls /datalake/likes
+18/08/19 17:26:12 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Found 2 items
+-rw-r--r--   2 carmenbelito hadoop        350 2018-08-19 17:25 /datalake/likes/likes.avro
+-rw-r--r--   2 carmenbelito hadoop        418 2018-08-19 17:26 /datalake/likes/likes.avsc
+carmenbelito@cluster-ctic01-w-1:~$ java -jar avro-tools-1.8.2.jar fromjson --schema-file likes.avsc likes.json > likes.avro
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -rm /datalake/likes/likes.avro
+18/08/19 17:45:30 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Deleted /datalake/likes/likes.avro
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -put  likes.avro /datalake/likes
+18/08/19 17:45:51 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -ls /datalake/likes
+18/08/19 17:57:01 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Found 2 items
+-rw-r--r--   2 carmenbelito hadoop       1859 2018-08-19 17:45 /datalake/likes/likes.avro
+-rw-r--r--   2 carmenbelito hadoop        418 2018-08-19 17:26 /datalake/likes/likes.avsc
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -ls /datalake/likes
+18/08/19 17:59:26 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Found 2 items
+-rw-r--r--   2 carmenbelito hadoop       1859 2018-08-19 17:45 /datalake/likes/likes.avro
+-rw-r--r--   2 carmenbelito hadoop        418 2018-08-19 17:26 /datalake/likes/likes.avsc
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -ls /datalake/landing/schema
+18/08/19 18:00:30 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Found 1 items
+-rw-r--r--   2 carmenbelito hadoop        492 2018-08-19 15:45 /datalake/landing/schema/twitter.avsc
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -mov /datalake/likes/likes.avsc /datalake/landing/schema/
+-mov: Unknown command
+Usage: hadoop fs [generic options]
+        [-appendToFile <localsrc> ... <dst>]
+        [-cat [-ignoreCrc] <src> ...]
+        [-checksum <src> ...]
+        [-chgrp [-R] GROUP PATH...]
+        [-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+        [-chown [-R] [OWNER][:[GROUP]] PATH...]
+        [-copyFromLocal [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+        [-copyToLocal [-f] [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
+        [-count [-q] [-h] [-v] [-t [<storage type>]] [-u] [-x] <path> ...]
+        [-cp [-f] [-p | -p[topax]] [-d] <src> ... <dst>]
+        [-createSnapshot <snapshotDir> [<snapshotName>]]
+        [-deleteSnapshot <snapshotDir> <snapshotName>]
+        [-df [-h] [<path> ...]]
+        [-du [-s] [-h] [-x] <path> ...]
+        [-expunge]
+        [-find <path> ... <expression> ...]
+        [-get [-f] [-p] [-ignoreCrc] [-crc] <src> ... <localdst>]
+        [-getfacl [-R] <path>]
+        [-getfattr [-R] {-n name | -d} [-e en] <path>]
+        [-getmerge [-nl] [-skip-empty-file] <src> <localdst>]
+        [-help [cmd ...]]
+        [-ls [-C] [-d] [-h] [-q] [-R] [-t] [-S] [-r] [-u] [<path> ...]]
+        [-mkdir [-p] <path> ...]
+        [-moveFromLocal <localsrc> ... <dst>]
+        [-moveToLocal <src> <localdst>]
+        [-mv <src> ... <dst>]
+        [-put [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+        [-renameSnapshot <snapshotDir> <oldName> <newName>]
+        [-rm [-f] [-r|-R] [-skipTrash] [-safely] <src> ...]
+        [-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+        [-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+        [-setfattr {-n name [-v value] | -x name} <path>]
+        [-setrep [-R] [-w] <rep> <path> ...]
+        [-stat [format] <path> ...]
+        [-tail [-f] <file>]
+        [-test -[defsz] <path>]
+        [-text [-ignoreCrc] <src> ...]
+        [-touchz <path> ...]
+        [-truncate [-w] <length> <path> ...]
+        [-usage [cmd ...]]
+
+Generic options supported are
+-conf <configuration file>     specify an application configuration file
+-D <property=value>            use value for given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>    specify a ResourceManager
+-files <comma separated list of files>    specify comma separated files to be copied to the map reduce cluster
+-libjars <comma separated list of jars>    specify comma separated jar files to include in the classpath.
+-archives <comma separated list of archives>    specify comma separated archives to be unarchived on the compute machines.
+
+The general command line syntax is
+command [genericOptions] [commandOptions]
+
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -mv /datalake/likes/likes.avsc /datalake/landing/schema/
+18/08/19 18:02:11 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+carmenbelito@cluster-ctic01-w-1:~$ hdfs dfs -ls /datalake/landing/schema
+18/08/19 18:02:20 INFO gcs.GoogleHadoopFileSystemBase: GHFS version: 1.6.7-hadoop2
+Found 2 items
+-rw-r--r--   2 carmenbelito hadoop        418 2018-08-19 17:26 /datalake/landing/schema/likes.avsc
+-rw-r--r--   2 carmenbelito hadoop        492 2018-08-19 15:45 /datalake/landing/schema/twitter.avsc
+carmenbelito@cluster-ctic01-w-1:~$
+
+
+
+------------------------------------------------------------
+//EN EL MASTER
+
+Authenticating with public key "carmenbelito"
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 10.9 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to carmenbelito@35.233.163.72                        │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✔  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : ✔  (automatically set on remote server)      │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+carmenbelito@cluster-ctic01-m:~$ beeline -u jdbc:hive2://localhost:10000/default -n carmenbelito@c                                                                                                             luster-ctic01-m -d org.apache.hive.jdbc.HiveDriver
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.4.1.jar!/org/slf4j/impl/Sta                                                                                                             ticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/Sta                                                                                                             ticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Connecting to jdbc:hive2://localhost:10000/default
+Connected to: Apache Hive (version 2.1.1)
+Driver: Hive JDBC (version 2.1.1)
+18/08/19 17:29:52 [main]: WARN jdbc.HiveConnection: Request to set autoCommit to false; Hive does                                                                                                              not support autoCommit=false.
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+Beeline version 2.1.1 by Apache Hive
+0: jdbc:hive2://localhost:10000/default> show database;
+Error: Error while compiling statement: FAILED: ParseException line 1:5 cannot recognize input nea                                                                                                             r 'show' 'database' '<EOF>' in ddl statement (state=42000,code=40000)
+0: jdbc:hive2://localhost:10000/default> show databases;
++----------------+--+
+| database_name  |
++----------------+--+
+| ctic           |
+| ctic2          |
+| default        |
+| retail         |
++----------------+--+
+4 rows selected (0.19 seconds)
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.facebook_likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.Avro                                                                                                             SerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.                                                                                                             AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroConta                                                                                                             inerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/likes/                                                                                                             likes.avsc');
+No rows affected (0.081 seconds)
+0: jdbc:hive2://localhost:10000/default> select * from reatil.facebook_likes
+. . . . . . . . . . . . . . . . . . . .> ;
+Error: Error while compiling statement: FAILED: SemanticException [Error 10001]: Line 1:14 Table not found 'facebook_likes' (state=42S02,code=10001)
+0: jdbc:hive2://localhost:10000/default> select * from retail.facebook_likes;
+Error: java.io.IOException: java.io.IOException: Not a data file. (state=,code=0)
+0: jdbc:hive2://localhost:10000/default> show databases;
++----------------+--+
+| database_name  |
++----------------+--+
+| ctic           |
+| ctic2          |
+| default        |
+| retail         |
++----------------+--+
+4 rows selected (0.03 seconds)
+0: jdbc:hive2://localhost:10000/default> show tables;
++-----------+--+
+| tab_name  |
++-----------+--+
++-----------+--+
+No rows selected (0.027 seconds)
+0: jdbc:hive2://localhost:10000/default>
+0: jdbc:hive2://localhost:10000/default>
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/likes/likes.avsc');
+No rows affected (0.105 seconds)
+0: jdbc:hive2://localhost:10000/default> show tables;
++-----------+--+
+| tab_name  |
++-----------+--+
++-----------+--+
+No rows selected (0.038 seconds)
+0: jdbc:hive2://localhost:10000/default> select * from retail.likes;
+Error: java.io.IOException: java.io.IOException: Not a data file. (state=,code=0)
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/likes/likes.avsc');
+Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table likes already exists) (state=08S01,code=1)
+0: jdbc:hive2://localhost:10000/default> drop table retail.likes;
+No rows affected (0.187 seconds)
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/likes/likes.avsc');
+No rows affected (0.09 seconds)
+0: jdbc:hive2://localhost:10000/default> select * from retail.likes;
+Error: java.io.IOException: java.io.IOException: Not a data file. (state=,code=0)
+0: jdbc:hive2://localhost:10000/default> drop table retail.likes;
+No rows affected (0.102 seconds)
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/likes/likes.avsc');
+No rows affected (0.073 seconds)
+0: jdbc:hive2://localhost:10000/default> select * from retail.likes;
+Error: java.io.IOException: java.io.IOException: Not a data file. (state=,code=0)
+0: jdbc:hive2://localhost:10000/default> select * from retail.likes;
+Error: java.io.IOException: java.io.IOException: Not a data file. (state=,code=0)
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/landing/schema/ikes.avsc');
+Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. java.lang.RuntimeException: MetaException(message:org.apache.hadoop.hive.serde2.SerDeException Encountered AvroSerdeException determining schema. Returning signal schema to indicate problem: Unable to read schema from given path: hdfs:///datalake/landing/schema/ikes.avsc) (state=08S01,code=1)
+0: jdbc:hive2://localhost:10000/default> drop table retail.likes;
+No rows affected (0.13 seconds)
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/landing/schema/ikes.avsc');
+Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. java.lang.RuntimeException: MetaException(message:org.apache.hadoop.hive.serde2.SerDeException Encountered AvroSerdeException determining schema. Returning signal schema to indicate problem: Unable to read schema from given path: hdfs:///datalake/landing/schema/ikes.avsc) (state=08S01,code=1)
+0: jdbc:hive2://localhost:10000/default> CREATE EXTERNAL TABLE retail.likes
+. . . . . . . . . . . . . . . . . . . .> ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+. . . . . . . . . . . . . . . . . . . .> STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+. . . . . . . . . . . . . . . . . . . .> OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+. . . . . . . . . . . . . . . . . . . .> LOCATION '/datalake/likes'
+. . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='hdfs:///datalake/landing/schema/likes.avsc');
+No rows affected (0.074 seconds)
+0: jdbc:hive2://localhost:10000/default> select * from retail.likes;
++------------------------------------------------------------+-------------------+---------------------------+--+
+|                         likes.name                         |     likes.id      |    likes.created_time     |
++------------------------------------------------------------+-------------------+---------------------------+--+
+| BANDA OKAZO                                                | 148935911792044   | 2018-07-30T18:59:18+0000  |
+| Organización Hispana de Countryballs                       | 515000352195641   | 2018-07-29T20:21:03+0000  |
+| Perubola                                                   | 2018986848340327  | 2018-07-29T20:19:48+0000  |
+| Vanguardia Magazine                                        | 137127700285092   | 2018-07-26T18:52:29+0000  |
+| Data Science Game                                          | 1590751911187224  | 2018-07-13T02:24:12+0000  |
+| Big Data Analytics Summit Perú                             | 444702545693021   | 2018-07-09T14:42:54+0000  |
+| El Tio Tony                                                | 155069235245152   | 2018-07-08T17:01:24+0000  |
+| EL NARRADOR DE CUENTOS                                     | 264027680296073   | 2018-07-08T01:17:06+0000  |
+| Ikariam                                                    | 121383634539057   | 2018-05-28T03:59:25+0000  |
+| Passion Fitness Monterrey                                  | 351644398691379   | 2018-05-27T15:36:55+0000  |
+| Ecology Tours                                              | 1517765271617869  | 2018-05-24T00:52:52+0000  |
+| VT Rhythmic                                                | 761129964061685   | 2018-05-21T01:59:12+0000  |
+| Perú Rumbo Al Bicentenario                                 | 351707061982061   | 2018-04-26T18:40:08+0000  |
+| Infoserp                                                   | 2062737100610154  | 2018-04-19T12:10:56+0000  |
+| Garena                                                     | 106846132669787   | 2018-03-23T18:02:39+0000  |
+| Futbol Gurus                                               | 1226975407370072  | 2018-03-01T15:07:32+0000  |
+| Antivirus NOD32 | Llaves - Claves - Seriales Actualizadas  | 223381521026903   | 2018-02-27T20:58:17+0000  |
+| Mundo de Millonarios                                       | 518350208176807   | 2018-02-10T16:43:27+0000  |
+| Derrochando Codiciado                                      | 942419302539394   | 2018-01-19T11:31:48+0000  |
+| Vikings                                                    | 258436810927867   | 2017-12-03T03:47:47+0000  |
+| Maestrías ESAN                                             | 319686004790789   | 2017-11-10T12:52:01+0000  |
+| Rustica                                                    | 821648351307027   | 2017-11-08T03:51:38+0000  |
+| Anival Torre Camones                                       | 856074347880332   | 2017-08-05T22:24:31+0000  |
+| Veronica Hilasaca                                          | 409966879400956   | 2017-08-03T16:53:34+0000  |
+| Perumanga                                                  | 426045355600      | 2017-08-02T18:53:35+0000  |
++------------------------------------------------------------+-------------------+---------------------------+--+
+25 rows selected (0.171 seconds)
+0: jdbc:hive2://localhost:10000/default>
