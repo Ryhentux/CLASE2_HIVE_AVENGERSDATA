@@ -1,0 +1,22 @@
+Conectarse a HIVE CLI
+
+WORKER
+-Me conecto desde un worker pero no es lo más seguro
+
+
+BEELINE:
+-conexion JDBS podria hacerlo desde otro nodo o maquina externa 
+
+beeline -u jdbc:hive2://localhost:10000/default -n carmenbelito@cluster-ctic01-m -d org.apache.hive.jdbc.HiveDriver
+
+# lo del profe
+
+Dos formas de conectarse a Hive CLI:
+-Me conecto desde un worker, no es muy segura
+hive
+
+Beeline:
+-Conexión JDBC, podría hacerlo desde otro nodo o máquina externa
+beeline -u jdbc:hive2://localhost:10000/default -n 10200190@cluster-ctic7-m -d org.apache.hive.jdbc.HiveDriver
+
+beeline -u jdbc:hive2://35.198.30.218:10000/default -n 10200190@cluster-ctic7-m -d org.apache.hive.jdbc.HiveDriver
